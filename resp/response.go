@@ -1,8 +1,7 @@
-package common
+package resp
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/gsxhnd/BangumiServer/errno"
 	"net/http"
 )
 
@@ -13,7 +12,7 @@ type Response struct {
 }
 
 func SendResponse(c *gin.Context, err error, data interface{}) {
-	code, message := errno.DecodeErr(err)
+	code, message := DecodeErr(err)
 
 	// always return http.StatusOK
 	c.JSON(http.StatusOK, Response{

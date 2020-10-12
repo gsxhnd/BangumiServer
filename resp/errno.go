@@ -1,4 +1,4 @@
-package errno
+package resp
 
 var (
 	// Common errors

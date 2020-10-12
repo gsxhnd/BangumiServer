@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
-	"github.com/gsxhnd/BangumiServer/common"
 	"github.com/gsxhnd/BangumiServer/logger"
+	"github.com/gsxhnd/BangumiServer/resp"
 	"go.uber.org/zap"
 	"io/ioutil"
 	"net/http"
@@ -56,9 +56,9 @@ func GetCode(ctx *gin.Context) {
 	_ = json.Unmarshal(resB, &resBody)
 	logger.Debug("", zap.Any("res", resBody))
 
-	common.SendResponse(ctx, nil, resBody)
+	resp.SendResponse(ctx, nil, resBody)
 }
 
 func WaitLogin(ctx *gin.Context) {
-	common.SendResponse(ctx, nil, "waiting login")
+	resp.SendResponse(ctx, nil, "waiting login")
 }
